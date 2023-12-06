@@ -1,18 +1,18 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-struct node {
-    int data;
-    struct node *next;
-};
-
 int main() {
+    struct node {
+        int data;
+        struct node *next;
+    };
+
+    int choice;
+
     struct node *head = NULL;
     struct node *newnode = NULL;
     struct node *temp = NULL;
     struct node *deletenode = NULL;
-
-    int choice;
 
     do {
         newnode = (struct node *)malloc(sizeof(struct node));
@@ -28,7 +28,7 @@ int main() {
             temp = newnode;
         }
 
-        printf("Do you want to continue (0: Break): ");
+        printf("Do you want to continue(0:Break): ");
         scanf("%d", &choice);
     } while (choice);
 
@@ -44,18 +44,13 @@ int main() {
     // Delete last node
     temp = head;
 
-    while (temp != NULL && temp->next != NULL) {
-        deletenode = temp;
+    while (temp != NULL) {
+        if (temp->next == NULL) {
+            deletenode = temp; // deletenode gets the last node's address
+            temp->next = NULL;
+            free(deletenode);
+        }
         temp = temp->next;
-    }
-
-    if (deletenode != NULL) {
-        free(temp);
-        deletenode->next = NULL;
-    } else {
-        // Handle the case where the list is empty or has only one element
-        free(head);
-        head = NULL;
     }
 
     printf("Traversing Linked List After Deletion ...\n\n");
@@ -72,8 +67,8 @@ int main() {
 
     while (temp != NULL) {
         struct node *currentnode = temp;
-        temp = temp->next;
         printf("Free the memory of %d ...\n", currentnode->data);
+        temp = temp->next;
         free(currentnode);
     }
 
