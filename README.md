@@ -7,10 +7,10 @@ Topics To Do:
 
 1. Trees
 2. Graphs
-3. Queue
-4. Stack
-5. Problems based on Arrays
-6. Problems based on Strings
-7. Linked Lists
+3. Queue 
+4. Stack [Ongoing]
+5. Arrays [Ongoing]
+6. Strings [Ongoing]
+7. Linked Lists [Ongoing]
 8. Searching Algorithms
 9. Sorting Algorithms
