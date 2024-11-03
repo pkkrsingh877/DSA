@@ -1,3 +1,40 @@
+# JavaScript Solution
+```JavaScript
+
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val, next) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.next = (next===undefined ? null : next)
+ * }
+ */
+/**
+ * @param {ListNode} head
+ * @return {ListNode}
+ */
+var middleNode = function(head) {
+    // Find length of Linked List
+    let length = 0;
+    let temp = head;
+    while(temp){
+        length++;
+        temp = temp.next;
+    }
+    
+    // Calculate which is the middle node
+    let index = parseInt(length / 2);
+
+    // Traverse and get to middle node
+    temp = head;
+    while(index){
+        temp = temp.next;
+        index--;
+    }
+    head = temp;
+    return head;
+};
+```
+# C++ Solution
 ```C++
 /**
  * Definition for singly-linked list.
